@@ -1,0 +1,2 @@
+[22-Sep-2017 18:28:44 Asia/Jakarta] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in /home/mnqbouti/public_html/connect.php on line 10
+[22-Sep-2017 18:28:47 Asia/Jakarta] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in /home/mnqbouti/public_html/connect.php on line 10

@@ -4,8 +4,9 @@
 	}
 
 	$perPages = 6;
-	$getCollection = mysql_query("SELECT * FROM tb_image WHERE category = 'collection'");
-	$totCont = mysql_num_rows($getCollection);
+	$collQry = "SELECT * FROM tb_image WHERE category = 'collection'";
+	$getCollection = mysqli_query($conn, $collQry);
+	$totCont = mysqli_num_rows($getCollection);
 	$totPages = ceil($totCont/$perPages);
 
 	//pagination code
@@ -46,7 +47,7 @@
 		$nextPage = '';
 	}
 ?>
-<div class="row" style="border-bottom: 1px solid #bcbcbc; border-top: 1px solid #bcbcbc; margin-top:15px;">
+<div class="row mt-15">
 	<div class="container">
 		<div class="col s12">
 			<h4 class="center">
@@ -55,12 +56,12 @@
 		</div>
 	</div>
 </div>
-<div class="row" style="margin-top:15px; border-bottom: 1px solid #bcbcbc;">
+<div class="row mt-15">
 	<div class="container">
 <?php
-$collectionItemPerPages = mysql_query("SELECT * FROM tb_image WHERE category = 'collection' LIMIT ".$perPages." OFFSET ".$start."");
-if($collectionItemPerPages && mysql_num_rows($collectionItemPerPages) > 0){
-	while($collection = mysql_fetch_array($collectionItemPerPages)) {
+$collectionItemPerPages = mysqli_query($conn, "SELECT * FROM tb_image WHERE category = 'collection' order by idimg DESC LIMIT ".$perPages." OFFSET ".$start."");
+if($collectionItemPerPages && mysqli_num_rows($collectionItemPerPages) > 0){
+	while($collection = mysqli_fetch_array($collectionItemPerPages)) {
 ?>
 		<div class="center">
 			<img class="materialboxed col s12 m12 l4" data-caption="<?php echo $collection['label']; ?>" width="250" src="<?php echo $collection['image']; ?>" style="margin-bottom:15px;">

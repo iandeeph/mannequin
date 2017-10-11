@@ -7,19 +7,19 @@ if(isset($_POST['submit'])){
 	$message = $_POST['message'];
 
 	$insertToMessage = "INSERT INTO tb_message (date, firstName, lastName, phone, email, message, status) value (now(), '".$firstName."', '".$lastName."', '".$phone."', '".$email."', '".$message."', 'unread')";
-	if (mysql_query($insertToMessage)) {
+	if (mysqli_query($conn, $insertToMessage)) {
 		?>
-		<div class="row" style="border-bottom: 1px solid #bcbcbc; border-top: 1px solid #bcbcbc; margin-top:15px;">
+		<div class="row mt-15">
 			<div class="container">
 				<div class="col s12">
-					<h2 class="center white-text">
+					<h5 class="center white-text">
 						THANK YOU FOR YOUR APRECIATE
-					</h2>
+					</h5>
 				</div>
 				<div class="col s12">
-					<h2 class="center white-text">
+					<h5 class="center white-text">
 						Your message sent, we will cantact you soon.
-					</h2>
+					</h5>
 				</div>
 				<div class="col s12 center">
 					<img src="images/logo.png" class="responsive-img" width="30%">
@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
 		</div>
 		<?php
 		} else {
-			echo "Error: ".$insertToMessage." ".mysql_error($conn);
+			echo "Error: ".$insertToMessage." ".mysqli_error($conn);
 		}
 }else{
 	header('Location: ./');

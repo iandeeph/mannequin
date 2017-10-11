@@ -1,4 +1,4 @@
-<div class="row" style="border-bottom: 1px solid #bcbcbc; margin-top:15px;">
+<div class="row mt-30">
 	<div class="container">
 		<div class="col s12 center">
 			<img src="images/logo.png" class="responsive-img" width="30%">
@@ -37,18 +37,18 @@ if(isset($_POST['submit'])){
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	$checkLogin = "SELECT * FROM tb_user WHERE username = '".$username."' AND password = '".$password."'";
-	$resulCheckLogin = mysql_query($checkLogin);
-	$checkLogin = mysql_fetch_array($resulCheckLogin);
+	$checkLogin = "SELECT * FROM tb_user WHERE username = '".$username."' AND password = '".md5($password).md5(md5($password))."'";
+	$resulCheckLogin = mysqli_query($conn, $checkLogin);
+	$checkLogin = mysqli_fetch_array($resulCheckLogin);
 
-	if (mysql_num_rows($resulCheckLogin) == 1) {
+	if (mysqli_num_rows($resulCheckLogin) == 1) {
 		$_SESSION['name'] = $checkLogin['firstName'].' '.$checkLogin['lastName'];
 		$_SESSION['priv'] = $checkLogin['priviledge'];
 		$_SESSION['user'] = $checkLogin['username'];
 		$_SESSION['logged'] = "logged";
-		header("Location: ./");
+		header("Location: ./admin/");
 		}else{
-		echo 'Username & Password salah..';
+		echo 'Username atau Password salah..';
 		}
 }
 ?>

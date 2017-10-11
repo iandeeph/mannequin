@@ -8,14 +8,14 @@ if(isset($_POST['submit'])){
 	$message = $_POST['message'];
 
 	$insertToMessage = "INSERT INTO tb_message (date, firstName, lastName, phone, email, message, status) value (now(), '".$firstName."', '".$lastName."', '".$phone."', '".$emailPost."', '".$message."', 'unread')";
-	if (mysql_query($insertToMessage)) {
+	if (mysqli_query($insertToMessage)) {
 	}else {
-		echo "Error: ".$insertToMessage." ".mysql_error($conn);
+		echo "Error: ".$insertToMessage." ".mysqli_error($conn);
 	}
 
 	$email = $_REQUEST['email'];
-	$messageMail = $_REQUEST['message']."</br></br>To manage visitor messages, please login on mannequinbutik.com then goto message menu..";
-	$subject = "Notification from Mannequinbutik.com : Visitor send message..";
+	$messageMail = $_REQUEST['message']."</br></br>To manage visitor messages, please login on mnqboutique.com then goto admin menu..";
+	$subject = "Notification from mnqboutique.com : Visitor send message..";
 	$body = <<<HTML
 $messageMail
 HTML;
@@ -23,8 +23,8 @@ HTML;
 	$headers = "From: $email\r\n";
     $headers .= "Content-type: text/html\r\n";
 
-    $qryEmailAddress = mysql_query("SELECT email FROM tb_user");
-    while($getEmailAddress = mysql_fetch_array($qryEmailAddress)){
+    $qryEmailAddress = mysqli_query($conn, "SELECT email FROM tb_user");
+    while($getEmailAddress = mysqli_fetch_array($qryEmailAddress)){
 		$to = $getEmailAddress['email'];
 	    mail($to, $subject, $body, $headers);
 	}

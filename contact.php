@@ -1,4 +1,4 @@
-<div class="row" style="border-bottom: 1px solid #bcbcbc; margin-top:15px;">
+<div class="row mt-30">
 	<div class="container">
 		<div class="col s12">
 			<h4 class="center">
@@ -46,7 +46,7 @@
 		</form>
   	</div>
 </div>
-<div class="row" style="border-bottom: 1px solid #bcbcbc;">
+<div class="row">
 	<div class="container">
 		<div class="col s12">
 			<h4 class="left">
@@ -54,7 +54,7 @@
 			</h4>
 		</div>
 		<div class="col s12 media">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5699451572095!2d106.73372750000003!3d-6.188258999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f77aea99ae1f%3A0xcaab30a5f68bc86b!2sPuri+Indah+Mall%2C+Puri+Lingkar+Luar+Puri+Agung%2C+Kembangan%2C+Kota+Jakarta+Barat%2C+Daerah+Khusus+Ibukota+Jakarta+11610!5e0!3m2!1sen!2sid!4v1442933737166" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15866.273865492554!2d106.733823!3d-6.188456!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x67c67e84fcc34a3a!2sMannequin!5e0!3m2!1sen!2sid!4v1506073059426" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
 		</div>
 	</div>
 </div>
